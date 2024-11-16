@@ -123,10 +123,6 @@ To test the complete functionality:
 * This project uses mock payment implementations and does not involve real currency transactions. All monetary values and transactions are simulated for demonstration purposes.
 * Due to the limitations of Render's free-tier deployment, API responses may take longer than usual. We appreciate your patience while using this website.
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ---
 
 Made with ❤️ by Raviteja
