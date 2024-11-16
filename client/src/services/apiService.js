@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://loan-mate.onrender.com/api';
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -9,11 +9,9 @@ const api = axios.create({
   },
 });
 
-// Add token to requests if it exists
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
     if (token) {
-      // Ensure token is properly formatted with 'Bearer' prefix
       config.headers.Authorization = token.startsWith('Bearer') ? token : `Bearer ${token}`;
     }
     return config;
@@ -148,7 +146,7 @@ export const updateLoanStatus = async (loanId, status, token) => {
 export const fetchUserStats = async (userId) => {
   const token = localStorage.getItem('token');
   try {
-    const response = await axios.get(`http://localhost:5000/api/loans/stats/${userId}`, {
+    const response = await axios.get(`${BASE_URL}/loans/stats/${userId}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     return response.data;
@@ -160,7 +158,7 @@ export const fetchUserStats = async (userId) => {
 export const approveLoan = async (loanId) => {
   const token = localStorage.getItem('token');
   try {
-    const response = await axios.patch(`http://localhost:5000/api/loans/${loanId}/approve`, {}, {
+    const response = await axios.patch(`${BASE_URL}/loans/${loanId}/approve`, {}, {
       headers: { Authorization: `Bearer ${token}` }
     });
     return response.data;
@@ -172,7 +170,7 @@ export const approveLoan = async (loanId) => {
 export const fetchGivenLoans = async () => {
   const token = localStorage.getItem('token');
   try {
-    const response = await fetch('http://localhost:5000/api/loans/user/given-loans', {
+    const response = await fetch(`${BASE_URL}/loans/user/given-loans`, {
       headers: { 
         Authorization: `Bearer ${token}`
       }
@@ -187,7 +185,7 @@ export const fetchGivenLoans = async () => {
 export const fetchTakenLoans = async () => {
   const token = localStorage.getItem('token');
   try {
-    const response = await fetch('http://localhost:5000/api/loans/user/taken-loans', {
+    const response = await fetch(`${BASE_URL}/loans/user/taken-loans`, {
       headers: { 
         Authorization: `Bearer ${token}`
       }
@@ -203,7 +201,7 @@ export const payLoan = async (loanId) => {
   const token = localStorage.getItem('token');
   try {
     const response = await axios.post(
-      `http://localhost:5000/api/loans/${loanId}/pay`, 
+      `${BASE_URL}/loans/${loanId}/pay`, 
       {}, 
       {
         headers: { 
@@ -216,19 +214,3 @@ export const payLoan = async (loanId) => {
     throw new Error(error.response?.data?.message || 'Failed to pay loan');
   }
 };
-
-
-// export const payLoan = async (loanId) => {
-//   const token = localStorage.getItem('token');
-//   try {
-//     const response = await axios.post(`http://localhost:5000/api/loans/${loanId}/pay`, {}, {
-//       headers: { 
-//         Authorization: `Bearer ${token}`
-//       }
-//     });
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     throw new Error('Failed to fetch loans');
-//   }
-// };
