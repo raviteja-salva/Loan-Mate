@@ -31,7 +31,7 @@ Experience LoanMate without installation:
 1. Clone the repository
 ```bash
 git clone https://github.com/raviteja-salva/Loan-Mate.git
-cd loanmate
+cd Loan-Mate
 ```
 
 2. Frontend Setup
