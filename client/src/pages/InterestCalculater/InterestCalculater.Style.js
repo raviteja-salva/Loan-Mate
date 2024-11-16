@@ -24,6 +24,10 @@ export const Container = styled.div`
   align-items: center;
   padding: 2rem;
   font-family: 'Poppins', sans-serif;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const Card = styled.div`
@@ -36,6 +40,11 @@ export const Card = styled.div`
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   animation: ${fadeIn} 0.6s ease-out;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -56,6 +65,16 @@ export const Title = styled.h1`
     background: linear-gradient(90deg, #6B73FF 0%, #000DFF 100%);
     border-radius: 2px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    
+    &:after {
+      width: 80px;
+      height: 3px;
+    }
+  }
 `;
 
 export const Form = styled.form`
@@ -63,6 +82,12 @@ export const Form = styled.form`
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const InputGroup = styled.div`
@@ -75,6 +100,12 @@ export const InputGroup = styled.div`
     transform: translateY(-50%);
     color: #6B73FF;
     animation: ${floatAnimation} 3s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    svg {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -92,6 +123,11 @@ export const Input = styled.input`
     border-color: #6B73FF;
     box-shadow: 0 0 0 3px rgba(107, 115, 255, 0.2);
     transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -115,6 +151,11 @@ export const Button = styled.button`
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
 `;
 
 export const ResultsContainer = styled.div`
@@ -122,6 +163,11 @@ export const ResultsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   animation: ${fadeIn} 0.6s ease-out;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 `;
 
 export const ResultCard = styled.div`
@@ -135,16 +181,33 @@ export const ResultCard = styled.div`
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
 `;
 
 export const ResultLabel = styled.p`
   color: #666;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
 `;
 
 export const ResultValue = styled.h3`
   color: #1a237e;
   font-size: 1.5rem;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;

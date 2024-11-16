@@ -35,6 +35,10 @@ export const DashboardWrapper = styled.div`
   min-height: 100vh;
   background: transparent;
   padding: 2rem;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -55,12 +59,25 @@ export const WelcomeSection = styled.div`
     font-size: 2.5rem;
     margin: 0;
     margin-bottom: 0.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 
   p {
     font-size: 1.1rem;
     opacity: 0.9;
     margin: 0;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    border-radius: 15px;
   }
 `;
 
@@ -69,6 +86,11 @@ export const StatsGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 `;
 
 export const StatCard = styled.div`
@@ -102,12 +124,20 @@ export const StatCard = styled.div`
       animation: ${shimmer} 1.5s infinite;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
 `;
 
 export const MetricSection = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+  }
 `;
 
 export const IconBox = styled.div`
@@ -119,6 +149,12 @@ export const IconBox = styled.div`
   justify-content: center;
   background: ${props => props.bgColor};
   box-shadow: 0 4px 12px ${props => `${props.bgColor}40`};
+
+  @media (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
 `;
 
 export const MetricInfo = styled.div`
@@ -131,6 +167,10 @@ export const MetricLabel = styled.h3`
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0.3rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
 `;
 
 export const MetricValue = styled.p`
@@ -138,6 +178,10 @@ export const MetricValue = styled.p`
   font-size: 1.75rem;
   font-weight: 700;
   color: #1e293b;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Section = styled.div`
@@ -147,6 +191,11 @@ export const Section = styled.div`
   margin-bottom: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.07);
   animation: ${scaleUp} 0.5s ease-out;
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    border-radius: 15px;
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -154,15 +203,29 @@ export const SectionTitle = styled.h2`
   margin-bottom: 1.5rem;
   color: #1e293b;
   font-size: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const ChartSection = styled(Section)`
-  height: 400px;
+  height: auto;
+  min-height: 400px;
+
+  @media (max-width: 768px) {
+    min-height: 350px;
+  }
 `;
 
 export const ChartContainer = styled.div`
   height: 300px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    height: 250px;
+  }
 `;
 
 export const ChartGrid = styled.div`
@@ -173,5 +236,11 @@ export const ChartGrid = styled.div`
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    gap: 1rem;
   }
 `;

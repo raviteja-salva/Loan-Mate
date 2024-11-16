@@ -38,6 +38,10 @@ export const PageContainer = styled.div`
   padding: 2rem;
   background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const DashboardHeader = styled.div`
@@ -50,6 +54,11 @@ export const DashboardHeader = styled.div`
   padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -60,6 +69,10 @@ export const Title = styled.h1`
   margin: 0;
   font-weight: 700;
   letter-spacing: -0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const LoanGrid = styled.div`
@@ -67,6 +80,11 @@ export const LoanGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 1.5rem;
   perspective: 1000px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 `;
 
 export const LoanCard = styled.div`
@@ -90,6 +108,14 @@ export const LoanCard = styled.div`
 
     &:before {
       opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    
+    &:hover {
+      transform: translateY(-4px) scale(1.01);
     }
   }
 
@@ -117,6 +143,13 @@ export const LoanHeader = styled.div`
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 `;
 
 export const Amount = styled.div`
@@ -129,6 +162,14 @@ export const Amount = styled.div`
     font-size: 1rem;
     color: #64748b;
     margin-left: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+
+    span {
+      font-size: 0.875rem;
+    }
   }
 `;
 
@@ -156,29 +197,53 @@ export const StatusBadge = styled.span`
       default: return 'rgba(148, 163, 184, 0.2)';
     }
   }};
+
+  @media (max-width: 768px) {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
 `;
 
 export const LoanDetails = styled.div`
   display: grid;
   gap: 1.25rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 export const DetailRow = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
 `;
 
 export const DetailLabel = styled.span`
   font-size: 0.875rem;
   color: #64748b;
   min-width: 100px;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+    min-width: unset;
+  }
 `;
 
 export const DetailValue = styled.span`
   font-size: 1rem;
   color: #1e293b;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
 `;
 
 export const ActionButtons = styled.div`
@@ -187,6 +252,12 @@ export const ActionButtons = styled.div`
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    flex-direction: column;
+  }
 `;
 
 export const Button = styled.button`
@@ -249,6 +320,15 @@ export const Button = styled.button`
       transform: translateY(0);
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
 `;
 
 export const LoadingSpinner = styled.div`
@@ -263,6 +343,12 @@ export const LoadingSpinner = styled.div`
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    border-width: 2px;
   }
 `;
 
@@ -287,5 +373,17 @@ export const EmptyState = styled.div`
     max-width: 500px;
     margin: 0 auto;
     line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 `;

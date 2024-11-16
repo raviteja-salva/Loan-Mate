@@ -1,7 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
-import {  
-    Search,
-  } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 const slideInUp = keyframes`
   from {
@@ -41,12 +39,17 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     padding: 1rem;
+    overflow-x: hidden;
   }
 `;
 
 export const DashboardHeader = styled.div`
   margin-bottom: 3rem;
   animation: ${slideInUp} 0.6s ease-out;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -73,6 +76,7 @@ export const Title = styled.h1`
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -80,6 +84,11 @@ export const SearchContainer = styled.div`
   position: relative;
   max-width: 400px;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -96,6 +105,11 @@ export const SearchInput = styled.input`
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
   }
+
+  @media (max-width: 768px) {
+    padding: 0.875rem 1rem 0.875rem 2.5rem;
+    font-size: 0.875rem;
+  }
 `;
 
 export const SearchIcon = styled(Search)`
@@ -104,8 +118,12 @@ export const SearchIcon = styled(Search)`
   top: 50%;
   transform: translateY(-50%);
   color: #64748b;
-`;
 
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+`;
 
 export const TableContainer = styled.div`
   background: white;
@@ -117,7 +135,22 @@ export const TableContainer = styled.div`
   border: 1px solid rgba(59, 130, 246, 0.1);
 
   @media (max-width: 1024px) {
+    border-radius: 12px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 2px;
+    }
   }
 `;
 
@@ -154,6 +187,12 @@ export const Th = styled.th`
   &:hover:after {
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
 `;
 
 export const Td = styled.td`
@@ -161,6 +200,12 @@ export const Td = styled.td`
   color: #1e293b;
   border-bottom: 1px solid #e2e8f0;
   transition: all 0.2s ease;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
 `;
 
 export const Tr = styled.tr`
@@ -175,6 +220,12 @@ export const Tr = styled.tr`
       color: #3b82f6;
     }
   }
+
+  @media (max-width: 768px) {
+    &:hover {
+      transform: none;
+    }
+  }
 `;
 
 export const StatusBadge = styled.span`
@@ -183,6 +234,7 @@ export const StatusBadge = styled.span`
   font-size: 0.875rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  white-space: nowrap;
   
   ${props => props.status === 'approved' ? `
     background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
@@ -201,6 +253,16 @@ export const StatusBadge = styled.span`
       box-shadow: 0 2px 10px rgba(133, 77, 14, 0.2);
     }
   `}
+
+  @media (max-width: 768px) {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 `;
 
 export const LoadingSpinner = styled.div`
@@ -211,6 +273,13 @@ export const LoadingSpinner = styled.div`
   border-radius: 50%;
   animation: ${pulseAnimation} 1s ease-in-out infinite;
   margin: 4rem auto;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+    margin: 2rem auto;
+  }
 `;
 
 export const EmptyState = styled.div`
@@ -224,6 +293,19 @@ export const EmptyState = styled.div`
     height: 64px;
     color: #3b82f6;
     margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    
+    svg {
+      width: 48px;
+      height: 48px;
+    }
+    
+    p {
+      font-size: 0.875rem;
+    }
   }
 `;
 
@@ -273,5 +355,15 @@ export const PayButton = styled.button`
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+    
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
   }
 `;
