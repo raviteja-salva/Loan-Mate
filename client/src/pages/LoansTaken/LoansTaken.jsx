@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchTakenLoans, payLoan } from '../../services/apiService';
-import { toast } from 'react-toastify';
+import LoadingOverlay from '../../components/LoadingOverlay/LoadingOverlay';
+import Swal from 'sweetalert2';
 import {
   Container,
   DashboardHeader,
@@ -30,13 +31,11 @@ const LoanTaken = () => {
       setLoans(response.data.loans);
       setFilteredLoans(response.data.loans);
     } catch (error) {
-      toast.error('Failed to fetch loans. Please try again later.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Failed to fetch loans. Please try again later.',
+        confirmButtonColor: '#3085d6'
       });
       console.error('Error fetching loans:', error);
     } finally {
@@ -57,24 +56,22 @@ const LoanTaken = () => {
 
   const handlePayment = async (loanId) => {
     try {
+      setLoading(true);
       await payLoan(loanId);
       await fetchLoans();
-      toast.success('Payment processed successfully!', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
+      setLoading(false);
+      await Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Payment processed successfully!',
+        confirmButtonColor: '#3085d6'
       });
     } catch (error) {
-      toast.error('Failed to process payment. Please try again.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
+      Swal.fire({
+        icon: 'error',
+        title: 'Payment Failed',
+        text: 'Failed to process payment. Please try again.',
+        confirmButtonColor: '#3085d6'
       });
       console.error('Payment error:', error);
     }
@@ -82,9 +79,7 @@ const LoanTaken = () => {
 
   if (loading) {
     return (
-      <Container>
-        <LoadingSpinner />
-      </Container>
+      <LoadingOverlay />
     );
   }
 

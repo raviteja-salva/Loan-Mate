@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchGivenLoans } from '../../services/apiService';
 import { ToastContainer, toast } from 'react-toastify';
+import LoadingOverlay from '../../components/LoadingOverlay/LoadingOverlay';
 import 'react-toastify/dist/ReactToastify.css';
 import {  
   Users, 
@@ -45,9 +46,7 @@ const LoansGiven = () => {
 
   if (loading) {
     return (
-      <Container>
-        <LoadingSpinner />
-      </Container>
+      <LoadingOverlay />
     );
   }
 

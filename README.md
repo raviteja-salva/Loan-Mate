@@ -13,6 +13,39 @@ LoanMate is a comprehensive loan management platform that connects lenders and b
 - **Mock Wallet System**: Simulated payment system for demonstration
 - **Search & Filter**: Advanced filtering options for loan management
 
+## 📱 Navigation & Interface
+
+### Sidebar Navigation
+- **Dashboard**: Overview of your loan activities and statistics
+- **Loan Posts**: Browse and create loan offerings
+- **Loans Given**: Monitor and manage loans you've provided
+- **Loans Taken**: Track loans you've borrowed
+- **Interest Calculator**: Tool for calculating loan interest
+
+### Header Features
+- **Notification Bell**: Access loan requests and updates
+- **Profile**: Manage your account settings and preferences
+
+## 🎯 Core Functionality
+
+### Posting a Loan
+1. Navigate to "Loan Posts" in the sidebar
+2. Click the "Create Loan Post" button
+3. Fill out the loan details form:
+   - Loan amount
+   - Interest rate
+   - Duration
+   - Additional terms
+4. Submit the form to publish your loan offering
+
+### Managing Loan Requests
+1. Click the notification bell in the header
+2. View incoming loan requests
+3. For each request:
+   - Review borrower details
+   - Click "Approve" or "Reject"
+   - Receive confirmation of your action
+
 ## 🚀 Live Demo
 
 Experience LoanMate without installation:
@@ -80,7 +113,7 @@ nodemon server.js
 
 ### Loan Management
 1. **Loan Posts**
-   - Create loan offerings
+   - Create and manage loan offerings
    - Browse available loans
    - Apply for loans
    - Status tracking
